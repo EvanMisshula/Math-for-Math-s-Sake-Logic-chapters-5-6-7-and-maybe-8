@@ -26,6 +26,7 @@
 \author{Math for Math's Sake}
 \newcommand\s{\section*}
 \renewcommand\ss{\subsection*}
+\newcommand\sss{\subsubsection*}
 
 \begin{document}
 \maketitle
@@ -43,7 +44,16 @@
 \ss{11}
 
 \s{6 Recursive Functions}
+% Some helper commands for the functionals defined in the text
+\newcommand\id{\mathrm{id}} % identity
+\newcommand\Cn{\mathrm{Cn}} % composition
+\newcommand\Pr{\mathrm{Pr}} % primitive recursion
+\newcommand\Mn{\mathrm{Mn}} % minimization
+
 \ss{1}
+Suppose $f(x,y)$ is recursive.
+\sss{a}
+Then $g(x,y) = f(y,x)$ is recursive by $g(x,y) = 
 \ss{2}
 \ss{3}
 \ss{4}
