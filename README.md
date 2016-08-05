@@ -1,0 +1,1 @@
+Collaborative homework for the [Logic, chapters 5, 6, 7, and (maybe!) 8](https://www.meetup.com/nyc-math/events/233000624/) meeting of the Math for Math's Sake meetup group
