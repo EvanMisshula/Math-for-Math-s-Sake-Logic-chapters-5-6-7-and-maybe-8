@@ -24,12 +24,18 @@
 \maketitle
 \s{5 Abacus Machines}
 \ss{5.1}
-Suppose $x$ is stored in register $n$ and $y$ in register $m$.  The output will be in register $n$.
+Suppose $x$ is stored in register $n$ and $y$ in register $m$.  The following abacus machine will put the output in register $n$.
 
-\begin{tikzpicture}
-\node[state,initial] (subm) {$m{-}$};
+\begin{tikzpicture}[auto]
+\tikzstyle{every path}=[thick];
+\node (start) {};
+\node[state] (subm) [below=of start] {$m{-}$};
+\node (end) [below right=of subm] {};
 \node[state] (addn) [below=of subm] {$n{+}$};
+\path[->] (start) edge (subm);
 \path[->] (subm) edge (addn);
+\path[->] (subm) edge node {$e$} (end);
+\path[->] (addn) edge [bend left=90] (subm);
 \end{tikzpicture}
 \ss{5.2}
 \ss{5.3}
