@@ -19,13 +19,14 @@
 \newcommand\s{\section*}
 \renewcommand\ss{\subsection*}
 \newcommand\sss{\subsubsection*}
-
+\newcommand\ms{Michael's solution: } % easy way to mark my solutions
 \begin{document}
 \maketitle
 \s{5 Abacus Machines}
 \ss{5.1}
-Suppose $x$ is stored in register $n$ and $y$ in register $m$.  The following abacus machine will put the output in register $n$.
+\ms Suppose $x$ is stored in register $n$ and $y$ in register $m$.  The following abacus machine will put the output in register $n$.
 
+\begin{center}
 \begin{tikzpicture}[auto]
 \tikzstyle{every path}=[thick];
 \node (start) {};
@@ -37,8 +38,29 @@ Suppose $x$ is stored in register $n$ and $y$ in register $m$.  The following ab
 \path[->] (subm) edge node {$e$} (end);
 \path[->] (addn) edge [bend left=90] (subm);
 \end{tikzpicture}
+\end{center}
+
 \ss{5.2}
+\ms Suppose $x$ is stored in register $n$.  The following abacus
+machine will put $\mathrm{sg}(x)$ in register $m$, assumed empty to begin with.
+
+\begin{center}
+\begin{tikzpicture}[auto]
+\tikzstyle{every path}=[thick];
+\node (start) {};
+\node[state] (subn) [below=of start] {$n{-}$};
+\node[state] (addm) [below right=of subn] {$m{+}$};
+\node (end1) [below right=of addm] {};
+\node (end2) [below=of subn] {};
+\path[->] (start) edge (subn);
+\path[->] (subn) edge node {$e$} (addm);
+\path[->] (addm) edge (end1);
+\path[->] (subn) edge (end2);
+\end{tikzpicture}
+\end{center}
 \ss{5.3}
+\ms Since we know that exponentiation is abacus computable (and, technically, the zero function is abacus computable), the composition $f(x)=0^x$ is abacus computable.  But this is equal to
+$\mathrm{sg}(x)$, since $0^0 = 1$ but $0^x = 0$ for $x>0$.
 \ss{5.4}
 \ss{5.5}
 \ss{5.6}
