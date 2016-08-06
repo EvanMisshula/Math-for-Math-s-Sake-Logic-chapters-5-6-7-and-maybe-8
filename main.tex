@@ -20,6 +20,7 @@
 \renewcommand\ss{\subsection*}
 \newcommand\sss{\subsubsection*}
 \newcommand\ms{Michael's solution: } % easy way to mark my solutions
+\newcommand\pf{Peter's solution: } % Same for mine
 \begin{document}
 \maketitle
 \s{5 Abacus Machines}
@@ -50,17 +51,17 @@ machine will put $\mathrm{sg}(x)$ in register $m$, assumed empty to begin with.
 \node (start) {};
 \node[state] (subn) [below=of start] {$n{-}$};
 \node[state] (addm) [below right=of subn] {$m{+}$};
-\node (end1) [below right=of addm] {};
-\node (end2) [below=of subn] {};
+\node (end1) [below=of addm] {};
+\node (end2) [below left=of subn] {};
 \path[->] (start) edge (subn);
-\path[->] (subn) edge node {$e$} (addm);
+\path[->] (subn) edge (addm);
 \path[->] (addm) edge (end1);
-\path[->] (subn) edge (end2);
+\path[->] (subn) edge node {$e$} (end2);
 \end{tikzpicture}
 \end{center}
 \ss{5.3}
-\ms Since we know that exponentiation is abacus computable, and we know the zero function is abacus computable, the composition $f(x)=0^x$ is abacus computable.  But this is equal to
-$\mathrm{sg}(x)$, since $0^0 = 1$ but $0^x = 0$ for $x>0$.
+\ms Since we know that exponentiation and subtraction are abacus computable, we know that $f(x)=1-0^x$ is abacus computable.  But this is equal to
+$\mathrm{sg}(x)$, since $1-0^0 = 0$ but $1-0^x = 1$ for $x>0$.
 \ss{5.4}
 \ss{5.5}
 \ss{5.6}
@@ -68,6 +69,7 @@ $\mathrm{sg}(x)$, since $0^0 = 1$ but $0^x = 0$ for $x>0$.
 \ss{5.8}
 \ss{5.9}
 \ss{5.10}
+\pf First, create the equivalent Turing machine using the methods in section 5.2, then number them using the method on p. 36.
 \ss{5.11}
 
 \s{6 Recursive Functions}
@@ -97,8 +99,8 @@ Suppose $f(x,y)$ is recursive.
 \ss{7.1}
 \ss{7.2}
 \ms We know that the relation $y^z\leq x$ is primitive recursive, since we know that exponentiation is primitive recursive from the 
-last chapter.  $\mathrm{lg}(x, y)$ is the minimum $z$ for which
-this is true.  In general, minimization isn't a primitive recursive operation, however we can put a bound on $z$: it can be no bigger than $x$, for example.  Thus we can use bounded minimization, which by Corollary 7.6, gives a primitive recursive function.
+last chapter.  $\mathrm{lg}(x, y)$ is the maximum $z$ for which
+this is true.  In general, maximization isn't a primitive recursive or even a recursive operation, however we can put a bound on $z$: it can be no bigger than $x$, for example.  Thus we can use bounded maximization, which by Corollary 7.6, gives a primitive recursive function.
 \ss{7.3}
 \ss{7.5}
 \ss{7.12}
