@@ -1,6 +1,6 @@
 % Welcome, Math for Math's sake folks!
 %
-% My idea is to use this file way to share solutions, questions, and comments.
+% My idea is to use this file as a way to share solutions, questions, and comments.
 %
 % Feel free to edit any part of it, and add ``Your name:your comment, question, or solution'' so we know who is asking what.
 %
@@ -12,7 +12,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata,positioning}
+\usepackage{amssymb}
+\usetikzlibrary{automata,positioning}
 
 \title{Logic, chapters 5, 6, 7, and (maybe!) 8}
 \author{Math for Math's Sake}
@@ -71,7 +72,7 @@ $\mathrm{sg}(x)$, since $1-0^0 = 0$ but $1-0^x = 1$ for $x>0$.
 \ss{5.10}
 \pf First, create the equivalent Turing machine using the methods in section 5.2, then number them using the method on p. 36.
 \ss{5.11}
-\ms This is a standard argument: let $d$ be the function as described in the problem, and let $\lceil d\rceil$ be the natural number in the given encoding.  Then either $d(\lceil d\rceil) = 0$ or $d(\lceil d\rceil) = 1$.  Both cases are impossible by the definition of $d$.
+\ms This is a standard argument: let $d$ be the function as described in the problem, and let $\ulcorner d\urcorner$ be the natural number in the given encoding.  Then either $d(\ulcorner d\urcorner) = 0$ or $d(\ulcorner d\urcorner) = 1$.  Both cases are impossible by the definition of $d$.
 
 \s{6 Recursive Functions}
 % Some helper commands for the functionals defined in the text
