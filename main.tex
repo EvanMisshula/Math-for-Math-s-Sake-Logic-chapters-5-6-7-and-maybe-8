@@ -59,7 +59,7 @@ machine will put $\mathrm{sg}(x)$ in register $m$, assumed empty to begin with.
 \end{tikzpicture}
 \end{center}
 \ss{5.3}
-\ms Since we know that exponentiation is abacus computable (and, technically, the zero function is abacus computable), the composition $f(x)=0^x$ is abacus computable.  But this is equal to
+\ms Since we know that exponentiation is abacus computable, and we know the zero function is abacus computable, the composition $f(x)=0^x$ is abacus computable.  But this is equal to
 $\mathrm{sg}(x)$, since $0^0 = 1$ but $0^x = 0$ for $x>0$.
 \ss{5.4}
 \ss{5.5}
@@ -80,9 +80,9 @@ $\mathrm{sg}(x)$, since $0^0 = 1$ but $0^x = 0$ for $x>0$.
 \ss{6.1}
 Suppose $f(x,y)$ is recursive.
 \sss{6.1(a)}
-Michael's solution: Then $g(x,y) = f(y,x)$ is recursive by $g(x,y) = \Cn[f,\id^2_2,\id^2_1]$
+\ms Then $g(x,y) = f(y,x)$ is recursive by $g(x,y) = \Cn[f,\id^2_2,\id^2_1]$
 \sss{6.1(b)}
-Michael's solution: And $h(x) = f(x,x)$ is recursive by $h(x) = \Cn[f,\id^1_1,\id^1_1]$
+\ms And $h(x) = f(x,x)$ is recursive by $h(x) = \Cn[f,\id^1_1,\id^1_1]$
 \sss{6.1(c)}
 \ss{6.2}
 \ss{6.3}
@@ -96,6 +96,9 @@ Michael's solution: And $h(x) = f(x,x)$ is recursive by $h(x) = \Cn[f,\id^1_1,\i
 \s{7 Recursive Sets and Relations}
 \ss{7.1}
 \ss{7.2}
+\ms We know that the relation $y^z\leq x$ is primitive recursive, since we know that exponentiation is primitive recursive from the 
+last chapter.  $\mathrm{lg}(x, y)$ is the minimum $z$ for which
+this is true.  In general, minimization isn't a primitive recursive operation, however we can put a bound on $z$: it can be no bigger than $x$, for example.  Thus we can use bounded minimization, which by Corollary 7.6, gives a primitive recursive function.
 \ss{7.3}
 \ss{7.5}
 \ss{7.12}
