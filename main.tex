@@ -11,8 +11,8 @@
 % This is a total experiment, and I'm not sure if will people will like or use it, but let's find out!
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage{tikz}
 \usepackage{amssymb}
+\usepackage{tikz}
 \usetikzlibrary{automata,positioning}
 
 \title{Logic, chapters 5, 6, 7, and (maybe!) 8}
@@ -22,6 +22,7 @@
 \newcommand\sss{\subsubsection*}
 \newcommand\ms{Michael's solution: } % easy way to mark my solutions
 \newcommand\pf{Peter's solution: } % Same for mine
+
 \begin{document}
 \maketitle
 \s{5 Abacus Machines}
@@ -81,6 +82,10 @@ $\mathrm{sg}(x)$, since $1-0^0 = 0$ but $1-0^x = 1$ for $x>0$.
 \renewcommand\Pr{\mathrm{Pr}} % primitive recursion
 \newcommand\Mn{\mathrm{Mn}} % minimization
 
+% Get the dot over the minus for the modified difference function, this code was snagged from https://tex.stackexchange.com/questions/114188/special-character-dot-over-dash
+\def\dotminus{\mathbin{\ooalign{\hss\raise1ex\hbox{.}\hss\cr
+  \mathsurround=0pt$-$}}}
+
 \ss{6.1}
 Suppose $f(x,y)$ is recursive.
 \sss{6.1(a)}
@@ -90,6 +95,8 @@ Suppose $f(x,y)$ is recursive.
 \sss{6.1(c)}
 \ss{6.2}
 \ss{6.3}
+\sss{6.3(b)}
+\ms From the fact that $x_{\leq}(x,y) = \mathrm{sg}(y\dotminus (x+1))$.
 \ss{6.4}
 \ss{6.5}
 \ss{6.6}
