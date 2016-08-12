@@ -69,8 +69,8 @@ $\mathrm{sg}(x)$, since $1-0^0 = 0$ but $1-0^x = 1$ for $x>0$.
 
 Adam's solution: $x\dotdiv (x\dotdiv 1)$.
 \ss{5.4} Adam: Hint out of mere laziness, it's the same as finding out whether the difference of two numbers is positive.  
-\ss{5.5}
-\ms I think this is right, but haven't 100\% thought it through. $x$ and $y$ are as in the problem, $y'$ and $r$ are initially 0, and the answer should be in $r$.
+\ss{5.5 and 5.6}
+\ms I think this is right, but haven't 100\% thought it through. $x$ and $y$ are as in the problem, $y'$, $r$, and $q$ are initially 0.  After the machine halts, the remainder should be in $r$ (solving 5.5) and the quotient should be in $q$ (solving 5.6).
 
 \begin{center}
 \begin{tikzpicture}[auto]
@@ -78,6 +78,7 @@ Adam's solution: $x\dotdiv (x\dotdiv 1)$.
 \node (start) {};
 \node[rectangle,draw] (xtor) [below=of start] {$[x]\to r$};
 \node[rectangle,draw] (ytoyp) [below=of xtor] {$[y]\to y'$};
+\node[state] (addq) [below left=of ytoyp] {$q{+}$};
 \node[state] (subx) [below=of ytoyp] {$x{-}$};
 \node (end1) [right=of subx] {};
 \node[state] (subyp) [below=of subx] {$y'{-}$};
@@ -87,11 +88,11 @@ Adam's solution: $x\dotdiv (x\dotdiv 1)$.
 \path[->] (subx) edge node {$e$} (end1);
 \path[->] (subx) edge [bend left=45] (subyp);
 \path[->] (subyp) edge [bend left=45] (subx);
-\path[->] (subyp) edge [bend left=90] node {$e$} (xtor);
+\path[->] (subyp) edge [bend left=30] node {$e$} (addq);
+\path[->] (addq) edge [bend left=30] (xtor);
 \end{tikzpicture}
 \end{center}
 
-\ss{5.6}
 \ss{5.7} Adam: It’s a machine that first deletes what it’s scanning then finds the next
 blank, makes it a stroke, makes the next stroke a blank and scans to the
 end, and so on. In short it ``fills the gap" between all $k$ blocks and makes
@@ -205,12 +206,16 @@ Adam: $\chi_{\leq}(x,y)\cdot y + \chi_{\leq}(y,x)\cdot x$
 
 \s{7 Recursive Sets and Relations}
 \ss{7.1}
+\sss{7.1(a)}
+\ms $S$ is given by $S(x,y)=\Cn[R,\id^2_2,\id^2_1]$, showing that if $R$ is primitive recursive (resp. recursive), then $S$ is primitive recursive (resp. recursive).  To show the result if $R$ is semirecursive, just carry an extra $t$ argument through.
 \ss{7.2}
 \ms We know that the relation $y^z\leq x$ is primitive recursive, since we know that exponentiation is primitive recursive from the 
 last chapter.  $\mathrm{lg}(x, y)$ is the maximum $z$ for which
 this is true.  In general, maximization isn't a primitive recursive or even a recursive operation, however we can put a bound on $z$: it can be no bigger than $x$, for example.  Thus we can use bounded maximization, which by Corollary 7.6, gives a primitive recursive function.
 \ss{7.3}
+\ms Use bounded minimization/maximization
 \ss{7.5}
+\ms First observe that the function $f(n)$ returning the minimum element of $A$ greater than or equal to $n$ is recursive by minimization.  Then $a(n)$ can be defined by $a(0) = f(0)$ and $a(n + 1) = f(a(n) + 1)$.
 \ss{7.12}
 \ss{7.13}
 \ss{7.14}
@@ -220,5 +225,6 @@ this is true.  In general, maximization isn't a primitive recursive or even a re
 
 \s{8 Equivalent Definitions of Computability}
 \ss{8.1}
+\ms $\mathrm{strt}(x_1,x_2) = (2^{x_1+1}\dotminus 1)\cdot 2^{x_2+2}+(2^{x_2+1}\dotminus 1)$
 \ss{8.2}
 \end{document}
