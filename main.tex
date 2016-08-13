@@ -243,6 +243,9 @@ Let $c$ be such that $f(x_1,\ldots,x_m) < c \max\{x_1,\ldots,x_m\} + c$ and $g_i
 Then the composition of $f$ and $g_i$ is bounded by $c(c\max\{x_1,\ldots,x_n\} + c) + c$, so we
 can take $c^2 + c$ as the new constant.
 \ss{7.14}
+By the preceding two problems, if recursion is used only once in the definition of $f(x,y)$,
+then there is some $c$ such that $f(x,y) < c \max\{x,y\} + c$.  However $f(x,y)$ doesn't
+have this property:  To see that, suppose that it does for a contradiction and without loss of generality assume that $c > 1$.  But then $f(c^4,c^4)$ would be less than $c c^4 + c$ which is less than $c^8$.
 \ss{7.15}
 \ss{7.16}
 \ss{7.17}
