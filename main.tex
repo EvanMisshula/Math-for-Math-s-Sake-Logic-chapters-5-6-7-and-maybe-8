@@ -217,6 +217,26 @@ this is true.  In general, maximization isn't a primitive recursive or even a re
 \ss{7.5}
 \ms First observe that the function $f(n)$ returning the minimum element of $A$ greater than or equal to $n$ is recursive by minimization.  Then $a(n)$ can be defined by $a(0) = f(0)$ and $a(n + 1) = f(a(n) + 1)$.
 \ss{7.12}
+\ms I found this surprising tricky.  I'm pretty sure I'm missing some easy way to do this here.
+
+Anyway, for simplicity, assume that $n=1$.  We'll let $c = 2(\max\{a,b\} + 1)$ and show the claim by
+induction.
+
+Let $c' = c/2$.  First, we'll show that if $x>y+1$, then $h(x,y) < c' (x + y) + c'$ by induction.  The base case
+is $h(x,0) = f(x) < x + a < c' x + c' = c' (x + 0) + c'$.
+
+For the inductive step, suppose that $h(x,y) < c' (x + y) + c'$.  By the definition of $b$,
+$h(x,y+1) < \max\{x,y+1,h(x,y)\} + b = \max\{x,h(x,y)\} + b < \max\{x,c'(x + y) + c'\} + b$.
+
+Now, this is equal to $c'(x+y) + c' + b$ and since $b < c'$, this is less than $c'(x + (y + 1)) + c'$,
+which was to be shown.
+
+Note that this shows that for $x > y + 1$, $h(x,y) < c x + c$.
+
+Now we'll show it for $x \leq y + 1$.  This is also proved by induction and we've already shown
+the base case.
+
+The inductive hypothesis for this is $h(x,y) < cy + c$.  By the definition of $b$, $h(x,y+1) < \max\{x,y+1,h(x,y)\} + b = \max\{y+1,h(x,y)\} + b$.  Plugging in the inductive hypothesis, we get that this is less than $\max\{y+1,cy+c\} + b$.  Since $c\geq 1$, this is $cy + c + b$ which is less than $c(y+1) + c$.
 \ss{7.13}
 \ss{7.14}
 \ss{7.15}
